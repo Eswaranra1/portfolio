@@ -4,10 +4,26 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* Account for fixed navbar on scroll */
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 5.5rem;
+  }
 }
 
 body {
   @apply font-sans antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Safe area for notched devices (iPhone X+, Android) */
+.safe-area-inset-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+.safe-area-inset-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 /* Custom scrollbar */

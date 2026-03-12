@@ -48,16 +48,16 @@ const Contact = () => {
           <div className="space-y-4">
             <a
               href={`mailto:${PORTFOLIO.email}`}
-              className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors"
+              className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors break-all min-h-[44px]"
             >
-              <FaEnvelope className="w-5 h-5 text-primary-500" />
-              {PORTFOLIO.email}
+              <FaEnvelope className="w-5 h-5 text-primary-500 shrink-0" />
+              <span className="min-w-0">{PORTFOLIO.email}</span>
             </a>
             <a
               href={`tel:${PORTFOLIO.phone.replace(/\s/g, '')}`}
-              className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors"
+              className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors min-h-[44px]"
             >
-              <FaPhone className="w-5 h-5 text-primary-500" />
+              <FaPhone className="w-5 h-5 text-primary-500 shrink-0" />
               {PORTFOLIO.phone}
             </a>
             <p className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
@@ -85,7 +85,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full px-4 py-3 min-h-[48px] rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base"
               placeholder="Your name"
             />
           </div>
@@ -100,7 +100,9 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              inputMode="email"
+              autoComplete="email"
+              className="w-full px-4 py-3 min-h-[48px] rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base"
               placeholder="your@email.com"
             />
           </div>
@@ -115,7 +117,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none text-base min-h-[120px]"
               placeholder="Your message..."
             />
           </div>

@@ -67,13 +67,13 @@ const ProjectCard = ({ project, index }) => (
         </span>
       ))}
     </div>
-    <div className="flex gap-3">
+    <div className="flex gap-4">
       {project.githubUrl && (
         <a
           href={project.githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
+          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors py-2 min-h-[44px]"
         >
           <FaGithub className="w-5 h-5" />
           <span>Code</span>
@@ -84,7 +84,7 @@ const ProjectCard = ({ project, index }) => (
           href={project.liveUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
+          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors py-2 min-h-[44px]"
         >
           <FaExternalLinkAlt className="w-4 h-4" />
           <span>Live</span>

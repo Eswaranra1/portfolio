@@ -8,7 +8,7 @@ const typingWords = ['Full Stack Developer', 'MERN Stack', 'Problem Solver', 'Te
 const Hero = () => (
   <section
     id="hero"
-    className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950"
+    className="min-h-screen flex items-center justify-center px-4 pt-20 pb-8 sm:pt-24 sm:pb-12 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 safe-area-inset-bottom"
   >
     <div className="max-w-4xl mx-auto text-center">
       <motion.div
@@ -46,7 +46,7 @@ const Hero = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2, duration: 0.5 }}
-        className="flex flex-wrap justify-center gap-4"
+        className="flex flex-wrap justify-center gap-3 sm:gap-4"
       >
         <Button
           href={PORTFOLIO.github}

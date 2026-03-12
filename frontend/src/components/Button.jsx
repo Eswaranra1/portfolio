@@ -20,9 +20,9 @@ const Button = ({
   const isExternalUrl = href?.startsWith('http');
   const useExternal = external ?? isExternalUrl;
   const sizeClasses = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
+    sm: 'px-4 py-2.5 text-sm min-h-[44px]',
+    md: 'px-6 py-3 text-base min-h-[44px]',
+    lg: 'px-8 py-4 text-lg min-h-[48px]',
   };
 
   const baseClasses = `inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 ${variants[variant]} ${sizeClasses[size]} ${className}`;

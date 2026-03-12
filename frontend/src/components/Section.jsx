@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const Section = ({ id, title, subtitle, children, className = '' }) => (
   <section
     id={id}
-    className={`py-20 md:py-28 px-4 sm:px-6 lg:px-8 ${className}`}
+    className={`py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 ${className}`}
   >
     <div className="max-w-6xl mx-auto">
       {(title || subtitle) && (
