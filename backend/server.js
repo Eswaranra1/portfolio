@@ -9,8 +9,6 @@ import projectRoutes from './routes/projectRoutes.js';
 import skillRoutes from './routes/skillRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
 
-connectDB();
-
 const app = express();
 
 // Security middleware
@@ -100,6 +98,20 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const startServer = async () => {
+  try {
+    await connectDB();
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error.message);
+    if (error.message.includes('whitelist')) {
+      console.error('\n→ Add your IP at: https://cloud.mongodb.com → Network Access → Add IP Address');
+      console.error('→ Or use 0.0.0.0/0 to allow all (dev only)\n');
+    }
+    process.exit(1);
+  }
+};
+
+startServer();
