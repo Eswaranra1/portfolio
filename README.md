@@ -132,13 +132,18 @@ For production, set `VITE_API_URL` to your deployed backend URL (e.g., `https://
    - **Build Command:** `npm run build`
    - **Output Directory:** `dist`
 5. Add Environment Variable:
-   - `VITE_API_URL` = Your Render backend URL + `/api` (e.g., `https://portfolio-api-xxxx.onrender.com/api`)
+   - `VITE_API_URL` = `https://portfolio-backend-a3z0.onrender.com/api`
 6. Deploy
 7. Note your frontend URL (e.g., `https://your-portfolio.vercel.app`)
 
-### 4. Update Backend CORS
+### 4. Update Backend CORS (Critical)
 
-After deploying the frontend, update the backend `FRONTEND_URL` on Render to your actual Vercel URL so CORS allows requests.
+After deploying the frontend, **update `FRONTEND_URL` on Render** to your actual Vercel URL. This fixes Bad Gateway / CORS errors.
+
+- Render Dashboard → Your backend service → **Environment** → **Environment Variables**
+- Set `FRONTEND_URL` = `https://your-actual-portfolio.vercel.app` (use your real Vercel URL)
+- For multiple origins (e.g. preview URLs): `https://portfolio.vercel.app,https://portfolio-xxx.vercel.app`
+- Click **Save** → **Manual Deploy** to redeploy
 
 ### 5. Add Resume
 

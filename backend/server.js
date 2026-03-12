@@ -36,24 +36,47 @@ const contactLimiter = rateLimit({
 });
 app.use('/api/contact', contactLimiter);
 
-// CORS
-const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+// CORS - allow frontend origin(s)
+const allowedOrigins = [process.env.FRONTEND_URL || 'http://localhost:5173']
+  .flatMap((url) => url.split(',').map((u) => u.trim()))
+  .filter(Boolean);
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(null, false);
+    }
+  },
   credentials: true,
   optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+}));
 
 // Body parser
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+
+// Root - API info
+app.get('/', (req, res) => {
+  const baseUrl = `${req.protocol}://${req.get('host')}`;
+  res.json({
+    success: true,
+    message: 'Portfolio API is running',
+    api: `${baseUrl}/api`,
+    endpoints: ['/api', '/api/health', '/api/projects', '/api/skills', 'POST /api/contact'],
+  });
+});
 
 // API Routes
 app.use('/api/projects', projectRoutes);
 app.use('/api/skills', skillRoutes);
 app.use('/api/contact', contactRoutes);
 
-// Health check
+// API root & health check
+app.get('/api', (req, res) => {
+  res.json({ success: true, message: 'Portfolio API is running' });
+});
 app.get('/api/health', (req, res) => {
   res.json({ success: true, message: 'Portfolio API is running' });
 });
