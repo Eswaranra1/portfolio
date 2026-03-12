@@ -2,6 +2,8 @@
 
 A production-grade full-stack MERN developer portfolio with modern UI/UX, dark/light mode, and deployment-ready configuration.
 
+**Live:** [portfolio-eswaran.vercel.app](https://portfolio-eswaran.vercel.app/)
+
 ## Tech Stack
 
 **Frontend:** React (Vite), TailwindCSS, Framer Motion, React Router, Axios, React Icons  
@@ -141,7 +143,7 @@ For production, set `VITE_API_URL` to your deployed backend URL (e.g., `https://
 After deploying the frontend, **update `FRONTEND_URL` on Render** to your actual Vercel URL. This fixes Bad Gateway / CORS errors.
 
 - Render Dashboard → Your backend service → **Environment** → **Environment Variables**
-- Set `FRONTEND_URL` = `https://your-actual-portfolio.vercel.app` (use your real Vercel URL)
+- Set `FRONTEND_URL` = `https://portfolio-eswaran.vercel.app` (your Vercel URL)
 - For multiple origins (e.g. preview URLs): `https://portfolio.vercel.app,https://portfolio-xxx.vercel.app`
 - Click **Save** → **Manual Deploy** to redeploy
 
