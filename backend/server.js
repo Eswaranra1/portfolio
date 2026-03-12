@@ -41,13 +41,16 @@ const allowedOrigins = [process.env.FRONTEND_URL || 'http://localhost:5173']
   .flatMap((url) => url.split(',').map((u) => u.trim()))
   .filter(Boolean);
 
+const isAllowedOrigin = (origin) => {
+  if (!origin) return true;
+  if (allowedOrigins.includes(origin)) return true;
+  if (origin.endsWith('.vercel.app')) return true;
+  return false;
+};
+
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(null, false);
-    }
+    callback(null, isAllowedOrigin(origin));
   },
   credentials: true,
   optionsSuccessStatus: 200,
